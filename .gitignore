@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# run outputs (regenerate with Experiment.py)
+results.csv
+final_results.csv
+*_summary.csv
+*_transactions.csv
+*_blotters.csv

@@ -604,7 +604,7 @@ class ARIMATrader(Trader):
             model_fit = auto_arima(df[1])
             
             # predict the price of the next round
-            predicted_price = int(model_fit.predict(1)[0])
+            predicted_price = int(np.asarray(model_fit.predict(1))[0])  # 2026: np.asarray for newer pmdarima, which returns a Series
 
 
             # plot graph
@@ -705,7 +705,7 @@ class FARIMATrader(Trader):
                 model_fit = auto_arima(df[1])
                 
                 # predict the price of the next round
-                self.predicted_price = int(model_fit.predict(1)[0])
+                self.predicted_price = int(np.asarray(model_fit.predict(1))[0])  # 2026: np.asarray for newer pmdarima, which returns a Series
 
                 self.tape_len += 1
 
@@ -815,7 +815,7 @@ class FARIMASTMTrader(Trader):
                 model_fit = auto_arima(df[1])
                 
                 # predict the price of the next round
-                self.predicted_price = int(model_fit.predict(1)[0])
+                self.predicted_price = int(np.asarray(model_fit.predict(1))[0])  # 2026: np.asarray for newer pmdarima, which returns a Series
 
                 self.tape_len += 1
 
